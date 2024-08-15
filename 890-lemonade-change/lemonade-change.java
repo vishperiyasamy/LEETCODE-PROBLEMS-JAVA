@@ -6,23 +6,18 @@ class Solution {
             if (bill == 5) {
                 fiveCount++;
             } else if (bill == 10) {
-                if (fiveCount == 0) {
-                    return false;
-                }
                 fiveCount--;
                 tenCount++;
-            } else { // bill == 20
-                if (tenCount > 0 && fiveCount > 0) {
+            } else if (tenCount >0) {
                     tenCount--;
                     fiveCount--;
-                } else if (fiveCount >= 3) {
+                } else  {
                     fiveCount -= 3;
-                } else {
-                    return false;
                 }
-            }
+          if(fiveCount<0)
+            return false;
+          
         }
-        
         return true;
     }
 }
