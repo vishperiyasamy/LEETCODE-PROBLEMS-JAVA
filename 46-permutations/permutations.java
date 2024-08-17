@@ -13,19 +13,15 @@ class Solution {
         }
         
         for (int i = start; i < nums.length; i++) {
-            // Swap the current index with the start index
-            swap(nums, start, i);
-            // Recur for the next index
+             int temp = nums[i];
+           nums[i] = nums[start];
+            nums[start] = temp;
             solve(nums, result, start + 1);
-            // Backtrack by swapping back
-            swap(nums, start, i);
+             temp = nums[i];
+        nums[i] = nums[start];
+        nums[start] = temp;
+           
         }
-    }
-
-    private void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
     }
 
     public List<List<Integer>> permute(int[] nums) {
